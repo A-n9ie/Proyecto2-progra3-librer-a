@@ -8,5 +8,5 @@
  <dependency>
 	    <groupId>com.github.A-n9ie</groupId>
 	    <artifactId>Proyecto2-progra3-libreria</artifactId>
-	    <version>Tag</version>
+	    <version>1.0.0</version>
 	</dependency>
