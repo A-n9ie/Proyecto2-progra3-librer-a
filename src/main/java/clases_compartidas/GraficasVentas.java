@@ -19,7 +19,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 
 public class GraficasVentas {
-    
+    //
      public static float ventasCategoriaMes(List<Factura> facturas, Categoria categoria, int mes, int annio) {
          float ventasCategoria = 0.0f;
          for(Factura fact: facturas){
