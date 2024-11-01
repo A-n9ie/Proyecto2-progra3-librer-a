@@ -45,7 +45,6 @@ public class Factura {
     }
     
     public Factura(Cliente cliente, Cajero cajero, List<DetalleVenta> detalles) {
-        
         this.numFactura = "";
         this.hora = "";
         this.fecha = LocalDate.now();
@@ -54,16 +53,15 @@ public class Factura {
         this.cliente = cliente;
         this.cajero = cajero;
     }
-    
-     public Factura(List<DetalleVenta> detalles) {
-        
-        this.numFactura = "";
-        this.hora = "";
-        this.fecha = LocalDate.now();
-        this.cliente = null;
-        this.cajero = null;
+
+    public Factura(String numFactura, String hora, LocalDate fecha, Cliente cliente, Cajero cajero, List<DetalleVenta> detalles, List<MetodoPago> pagos) {
+        this.numFactura = numFactura;
+        this.hora = hora;
+        this.fecha = fecha;
+        this.cliente = cliente;
+        this.cajero = cajero;
         this.detalles = detalles;
-        this.pagos = null;
+        this.pagos = pagos;
     }
 
     public static int getContFacturas() {
@@ -99,8 +97,17 @@ public class Factura {
         return fecha;
     }
 
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
     public void setFecha(String fecha) {
-         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter formatter;
+        if (fecha.contains("/")) {
+            formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        } else {
+            formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        }
         this.fecha = LocalDate.parse(fecha, formatter);
     }
 @XmlElement(name = "cliente")
@@ -147,7 +154,6 @@ public class Factura {
     }
     
     public float montoTotal(){
-       // float descuentott = subtotal() * descuentos();
         float total = subtotal();
         return total;
     }
