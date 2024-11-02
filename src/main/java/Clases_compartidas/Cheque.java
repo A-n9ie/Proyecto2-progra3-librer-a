@@ -4,24 +4,23 @@
  */
 package Clases_compartidas;
 
-
 import jakarta.xml.bind.annotation.*;
 
-
 @XmlRootElement
-public class Sinpe extends MetodoPago {
+public class Cheque extends MetodoPago {
 
-    public Sinpe() {
+    public Cheque() {
+        this.metodo = "Cheque";
     }
 
-    public Sinpe(float monto) {
+    public Cheque(float monto) {
         super(monto);
-        this.metodo = "Sinpe";
+        this.metodo = "Cheque";
     }
     
     @Override
     public String[] getDatosPago() {
-        String[] dataPago = {"metodo", "monto", "telefono"};
+        String[] dataPago = {"metodo", "monto", "numcheque"};
         return dataPago;
     }
 
@@ -34,8 +33,8 @@ public class Sinpe extends MetodoPago {
 
     @Override
     public String toString() {
-        return "Metodo de pago -> " + metodo + 
-                "\nMonto pagado: " + monto + "\n"
-                ;}
+        return "Metodo de pago -> " + metodo +
+                "\nMonto pagado: " + monto + "\n";
+    }
     
 }

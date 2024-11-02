@@ -13,6 +13,7 @@ public class Efectivo extends MetodoPago {
     private float cambio;
 
     public Efectivo() {
+        this.metodo = "Efectivo";
     }
 
     public Efectivo(float monto) {

@@ -10,6 +10,7 @@ import jakarta.xml.bind.annotation.*;
 public class Tarjeta extends MetodoPago {
 
     public Tarjeta() {
+        this.metodo = "Tarjeta";
     }
     
     public Tarjeta(float monto) {
